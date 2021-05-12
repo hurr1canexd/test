@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class City {
     private final String name; // наименование города
     private final String region; // регион
@@ -35,6 +37,20 @@ public class City {
 
     public String getFoundation() {
         return foundation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return population == city.population && name.equals(city.name) && region.equals(city.region) &&
+                district.equals(city.district) && foundation.equals(city.foundation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, region, district, population, foundation);
     }
 
     @Override

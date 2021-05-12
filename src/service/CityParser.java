@@ -18,8 +18,8 @@ public class CityParser {
                 City curCity = new City(curCityInfo);
                 cities.add(curCity);
             }
-        } catch (FileNotFoundException fnfe) {
-            fnfe.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         return cities;

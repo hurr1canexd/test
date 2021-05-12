@@ -2,34 +2,11 @@ package util;
 
 import model.City;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Util {
-    /**
-     * Сортировка списка городов по наименованию в алфавитном порядке по убыванию без учета регистра
-     */
-    public static void sortCitiesByNameIgnoreCase(List<City> cities) {
-        Comparator<City> cityByNameComparator = (c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName());
-        cities.sort(cityByNameComparator);
-    }
-
-    /**
-     * Сортировка списка городов по федеральному округу и наименованию города внутри каждого федерального округа
-     * в алфавитном порядке по убыванию с учетом регистра
-     */
-    public static void sortCitiesByDistrictThenByName(List<City> cities) {
-        Comparator<City> cityByDistrictThenByNameComparator = (c1, c2) -> {
-            if (c1.getDistrict().compareTo(c2.getDistrict()) == 0) {
-                return c1.getName().compareTo(c2.getName());
-            }
-            return c1.getDistrict().compareTo(c2.getDistrict());
-        };
-        cities.sort(cityByDistrictThenByNameComparator);
-    }
-
+public class Algorithms {
     /**
      * Находит индекс элемента и значение с наибольшим количеством жителей города
      */
