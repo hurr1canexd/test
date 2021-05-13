@@ -1,4 +1,7 @@
+package test.java;
+
 import model.City;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import service.CityParser;
@@ -8,13 +11,13 @@ import util.Comparators;
 import java.io.File;
 import java.util.*;
 
-import static org.junit.Assert.*;
 import static util.Algorithms.findCityWithHighestPopulation;
 import static util.Algorithms.getCitiesNumberByRegions;
 
 public class Tests {
     private List<City> cities;
-    private Sorter sorter = new Sorter();
+    private final Sorter sorter = new Sorter();
+    private final String FILE_PATH = "files/cities.txt";
 
     @Before
     public void init() {
@@ -37,7 +40,9 @@ public class Tests {
 
     @Test
     public void shouldParseTest() {
-        assertEquals(cities, CityParser.parse(new File("files/cities.txt")));
+        List<City> expected = new ArrayList<>();
+        CityParser.parse(new File(FILE_PATH), expected);
+        Assert.assertEquals(cities, expected);
     }
 
     @Test
@@ -57,9 +62,9 @@ public class Tests {
                         new City(new String[]{"2", "Майкоп", "Адыгея", "Южный", "144246", "1857"})
                 )
         );
-        sorter.setComparator(Comparators.cityByNameComparator());
+        sorter.setComparator(Comparators.cityByNameComparator);
         sorter.sort(cities);
-        assertEquals(expected, cities);
+        Assert.assertEquals(expected, cities);
     }
 
     @Test
@@ -79,16 +84,16 @@ public class Tests {
                         new City(new String[]{"2", "Майкоп", "Адыгея", "Южный", "144246", "1857"})
                 )
         );
-        sorter.setComparator(Comparators.cityByDistrictThenByNameComparator());
+        sorter.setComparator(Comparators.cityByDistrictThenByNameComparator);
         sorter.sort(cities);
-        assertEquals(expected, cities);
+        Assert.assertEquals(expected, cities);
     }
 
     @Test
     public void findCityWithHighestPopulationTest() {
         int expected = findCityWithHighestPopulation(cities)[1];
         for (City city: cities) {
-            assertTrue(city.getPopulation() <= expected);
+            Assert.assertTrue(city.getPopulation() <= expected);
         }
     }
 
@@ -104,6 +109,6 @@ public class Tests {
         expected.put("Татарстан", 1);
         expected.put("Адыгея", 2);
         expected.put("Алтай", 1);
-        assertEquals(expected, getCitiesNumberByRegions(cities));
+        Assert.assertEquals(expected, getCitiesNumberByRegions(cities));
     }
 }

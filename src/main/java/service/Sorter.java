@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Sorter {
-    private Comparator<City> comparator;
+    private Comparator<City> comparator = Comparator.comparing(City::getName);
 
     public void setComparator(Comparator<City> comparator) {
         this.comparator = comparator;

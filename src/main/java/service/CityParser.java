@@ -4,14 +4,16 @@ import model.City;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CityParser {
-    public static List<City> parse(File file) {
-        List<City> cities = new ArrayList<>();
-
+    /**
+     * Считывает данные из файла и разбивает их в файл
+     * @param file - файл, содержащий информацию о городах
+     * @param cities - список для добавления городов
+     */
+    public static void parse(File file, List<City> cities) {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String[] curCityInfo = scanner.nextLine().split(";", 6);
@@ -21,7 +23,5 @@ public class CityParser {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        return cities;
     }
 }
