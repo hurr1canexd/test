@@ -1,6 +1,6 @@
-package util;
+package com.bootcamp.mihail.dictionary.util;
 
-import model.City;
+import com.bootcamp.mihail.dictionary.model.City;
 
 import java.util.Comparator;
 

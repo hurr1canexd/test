@@ -1,23 +1,24 @@
-package test.java;
+package com.bootcamp.mihail.dictionary;
 
-import model.City;
+import com.bootcamp.mihail.dictionary.model.City;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import service.CityParser;
-import service.Sorter;
-import util.Comparators;
+import com.bootcamp.mihail.dictionary.service.CityParser;
+import com.bootcamp.mihail.dictionary.service.Sorter;
+import com.bootcamp.mihail.dictionary.util.Comparators;
 
 import java.io.File;
 import java.util.*;
 
-import static util.Algorithms.findCityWithHighestPopulation;
-import static util.Algorithms.getCitiesNumberByRegions;
+import static com.bootcamp.mihail.dictionary.util.Algorithms.findCityWithHighestPopulation;
+import static com.bootcamp.mihail.dictionary.util.Algorithms.getCitiesNumberByRegions;
+
 
 public class Tests {
     private List<City> cities;
     private final Sorter sorter = new Sorter();
-    private final String FILE_PATH = "files/cities.txt";
+    private final String FILE_PATH = "src/main/resources/cities.txt";
 
     @Before
     public void init() {

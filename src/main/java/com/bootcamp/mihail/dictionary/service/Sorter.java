@@ -1,6 +1,6 @@
-package service;
+package com.bootcamp.mihail.dictionary.service;
 
-import model.City;
+import com.bootcamp.mihail.dictionary.model.City;
 
 import java.util.Comparator;
 import java.util.List;

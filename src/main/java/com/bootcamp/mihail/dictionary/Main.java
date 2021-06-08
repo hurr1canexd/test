@@ -1,8 +1,10 @@
-import model.City;
-import service.CityParser;
-import service.Sorter;
-import util.Algorithms;
-import util.Comparators;
+package com.bootcamp.mihail.dictionary;
+
+import com.bootcamp.mihail.dictionary.model.City;
+import com.bootcamp.mihail.dictionary.service.CityParser;
+import com.bootcamp.mihail.dictionary.service.Sorter;
+import com.bootcamp.mihail.dictionary.util.Algorithms;
+import com.bootcamp.mihail.dictionary.util.Comparators;
 
 import java.io.File;
 import java.util.ArrayList;

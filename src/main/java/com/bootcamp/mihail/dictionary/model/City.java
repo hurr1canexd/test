@@ -1,4 +1,4 @@
-package model;
+package com.bootcamp.mihail.dictionary.model;
 
 import java.util.Objects;
 
